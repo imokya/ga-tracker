@@ -1,0 +1,67 @@
+import Tracker from './Tracker'
+import { v4 as uuidv4 } from 'uuid'
+import Storage from './utils/storage'
+import { CLIENT_ID } from './utils/constant'
+
+interface IParams {
+  version: string
+  screenResolution: string
+  clientId: string
+  gtm: string
+}
+
+let _instance: GoogleAnalytics | null = null
+
+export default class GoogleAnalytics {
+  public trackers: Tracker[]
+  public params: IParams
+  public log: boolean
+
+  constructor() {
+    this.params = {
+      version: '2',
+      gtm: '2oe6t0',
+      clientId: this.getClientId(),
+      screenResolution: this.getScreenResolution()
+    }
+    this.trackers = []
+    this.log = true
+
+    if (_instance) {
+      return _instance
+    }
+    _instance = this
+  }
+
+  getInstance() {
+    return new GoogleAnalytics()
+  }
+
+  getClientId() {
+    let clientId = Storage.getItem(CLIENT_ID)
+    if (!clientId) {
+      clientId = uuidv4()
+      Storage.setItem(CLIENT_ID, clientId)
+    }
+    return clientId
+  }
+
+  getScreenResolution() {
+    const w = window.innerWidth
+    const h = window.innerHeight
+    return `${w}x${h}`
+  }
+
+  getTracker(measurementId): Tracker {
+    const tracker = new Tracker(this, measurementId)
+    this.trackers.push(tracker)
+    return tracker
+  }
+
+  getDefaultTracker(): Tracker | null {
+    if (this.trackers.length > 0) {
+      return this.trackers[0]
+    }
+    return null
+  }
+}
