@@ -3,7 +3,7 @@ import Storage from './utils/storage'
 import { CLIENT_ID } from './utils/constant'
 import { getSystemInfo, uuid } from './utils'
 
-interface IParams {
+interface IGAParams {
   version: string
   screenResolution: string
   clientId: string
@@ -14,7 +14,7 @@ let _instance: GoogleAnalytics | null = null
 
 export default class GoogleAnalytics {
   public trackers: Tracker[]
-  public params: IParams
+  public params: IGAParams
   public log: boolean
 
   constructor() {

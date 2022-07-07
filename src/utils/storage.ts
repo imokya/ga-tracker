@@ -1,7 +1,7 @@
 import config from '../config'
 import { Mode } from './constant'
 
-declare const uni
+declare const uni: any
 
 class Storage {
   setItem(key: string, value: any) {

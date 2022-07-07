@@ -1,6 +1,6 @@
 const defaultTrackerServer = 'https://www.google-analytics.com'
 import GoogleAnalytics from './GoogleAnalytics'
-import { IParams } from './types'
+import { IPayLoadParams } from './types'
 import { buildQueryFromObject, log, getSystemInfo } from './utils'
 import { request } from './utils/request'
 import Event from './Event'
@@ -89,7 +89,7 @@ export default class Tracker {
   async sendRequest(payloadData: any) {
     const ga = this.ga
     const systemInfo = getSystemInfo()
-    const params: IParams = {
+    const params: IPayLoadParams = {
       v: ga.params.version,
       cid: ga.params.clientId,
       tid: this.measurementId,

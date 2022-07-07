@@ -3,9 +3,9 @@ import config from '../config'
 import { Mode } from './constant'
 import { ISystemInfo } from '../types'
 
-declare const uni
+declare const uni: any
 
-export const buildQueryFromObject = (obj) => {
+export const buildQueryFromObject = (obj: any) => {
   const query: string[] = []
   Object.keys(obj).forEach((key) => {
     const k = encodeURIComponent(key)
@@ -15,7 +15,7 @@ export const buildQueryFromObject = (obj) => {
   return query.join('&')
 }
 
-export const log = (...msg) => {
+export const log = (...msg: any[]) => {
   const ga = new GoogleAnalytics()
   if (ga.log) {
     console.log(msg)

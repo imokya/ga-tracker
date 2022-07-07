@@ -1,4 +1,4 @@
-export interface IParams {
+export interface IPayLoadParams {
   v: string // version
   gtm: string // tag manager container
   tid: string // measurement id
@@ -16,13 +16,13 @@ export interface IParams {
   _z?: string
 }
 
-export interface IEventParams {
+export interface IParams {
   [k: string]: string | number
 }
 
 export interface IEvent {
   name: string
-  params: IEventParams
+  params: IParams
 }
 
 export interface ISystemInfo {

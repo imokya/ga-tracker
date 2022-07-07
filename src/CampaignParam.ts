@@ -1,4 +1,6 @@
-const paramsMap = {
+import { IParams } from './types'
+
+const paramsMap: IParams = {
   utm_id: 'ci',
   utm_source: 'cs',
   utm_medium: 'cm',
@@ -14,8 +16,8 @@ const defaultParams = {
 }
 
 export default class CampaignParam {
-  parseFromUrl(url) {
-    const params = {}
+  parseFromUrl(url: string) {
+    const params: IParams = {}
     url.split('&').forEach((item) => {
       const [key, val] = item.split('=')
       const newKey = paramsMap[key]
