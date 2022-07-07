@@ -19,14 +19,14 @@ const gaTracker = {
 }
 Vue.prototype.$gaTracker = gaTracker
 ```
-### 3.页面中发送页面事件
+### 3.发送页面事件
 ```js
  const tracker = this.$gaTracker.getInstance()
  const event = new ga.PageViewEvent()
  event.setParams({ page_title: '页面标题' })
  tracker.send(event)
 ```
-### 4.页面中发送自定义事件
+### 4.发送自定义事件
 ```js
  const tracker = this.$gaTracker.getInstance()
  const event = new ga.Event()
