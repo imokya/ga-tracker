@@ -1,4 +1,6 @@
 ## 在小程序中使用谷歌统计4
-未完成，调试中...
+### 安装
+```javascript
+npm i @mayupai/ga-tracker
 
 
