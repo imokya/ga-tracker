@@ -1,26 +1,31 @@
 {
-  "name": "@mayupai/wechat-share",
-  "version": "1.0.4",
+  "name": "@mayupai/ga-tracker",
+  "version": "0.0.11",
   "description": "",
-  "main": "dist/wechat.share.js",
+  "main": "dist/ga-tracker.js",
   "scripts": {
     "dev": "webpack server --progress --config config/dev.config.js",
     "build": "webpack --progress --config config/prod.config.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/imokya/wechat-share.git"
+    "url": "git+https://github.com/imokya/ga-tracker.git"
   },
   "keywords": [
+    "ga4",
     "wechat",
-    "share"
+    "uniapp",
+    "miniprogram"
   ],
-  "author": "行歌",
+  "author": {
+    "name": "行歌",
+    "url": "https://www.mayupai.com"
+  },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/imokya/wechat-share/issues"
+    "url": "https://github.com/imokya/ga-tracker/issues"
   },
-  "homepage": "https://github.com/imokya/wechat-share#readme",
+  "homepage": "https://github.com/imokya/ga-tracker",
   "devDependencies": {
     "@babel/core": "^7.18.5",
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.17.12",

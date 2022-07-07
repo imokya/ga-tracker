@@ -5,12 +5,12 @@ module.exports = {
   entry: './src/index.ts',
   output: {
     filename: 'ga-tracker.js',
-    path: path.resolve(__dirname, '../dist')
-    // library: {
-    //   name: 'GoogleAnalystic',
-    //   export: 'default',
-    //   type: 'umd'
-    // }
+    path: path.resolve(__dirname, '../dist'),
+    library: {
+      name: 'gaTracker',
+      export: 'default',
+      type: 'umd'
+    }
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
@@ -36,7 +36,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebapckPlugin({
-      inject: true,
+      inject: false,
       scriptLoading: 'blocking',
       minify: false,
       template: './index.html'

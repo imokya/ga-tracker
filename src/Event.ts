@@ -1,9 +1,9 @@
-import { IEvent } from './types'
+import { IEvent, IEventParams } from './types'
 import CampaignParam from './CampaignParam'
 
 export default class Event {
   public event: IEvent
-  public campaignParams: object | null
+  public campaignParams: IEventParams | null
 
   constructor() {
     this.event = {
@@ -13,7 +13,7 @@ export default class Event {
     this.campaignParams = null
   }
 
-  setName(name) {
+  setName(name: string) {
     this.event.name = name
     return this
   }
@@ -23,13 +23,13 @@ export default class Event {
     return this
   }
 
-  setCampaignParamsFromUrl(url) {
+  setCampaignParamsFromUrl(url: string) {
     const cp = new CampaignParam()
     this.campaignParams = cp.parseFromUrl(url)
     return this
   }
 
-  mergeParams(source, dest, prefix = '') {
+  mergeParams(source: IEventParams, dest: IEventParams, prefix: string = '') {
     Object.keys(source).forEach((key) => {
       const _key = encodeURIComponent(key)
       dest[`${prefix}${_key}`] = encodeURIComponent(source[key])

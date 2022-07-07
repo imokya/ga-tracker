@@ -1,7 +1,7 @@
 import Tracker from './Tracker'
-import { v4 as uuidv4 } from 'uuid'
 import Storage from './utils/storage'
 import { CLIENT_ID } from './utils/constant'
+import { getSystemInfo, uuid } from './utils'
 
 interface IParams {
   version: string
@@ -40,19 +40,20 @@ export default class GoogleAnalytics {
   getClientId() {
     let clientId = Storage.getItem(CLIENT_ID)
     if (!clientId) {
-      clientId = uuidv4()
+      clientId = uuid()
       Storage.setItem(CLIENT_ID, clientId)
     }
     return clientId
   }
 
   getScreenResolution() {
-    const w = window.innerWidth
-    const h = window.innerHeight
+    const systemInfo = getSystemInfo()
+    const w = systemInfo.windowWidth
+    const h = systemInfo.windowHeight
     return `${w}x${h}`
   }
 
-  getTracker(measurementId): Tracker {
+  getTracker(measurementId: string): Tracker {
     const tracker = new Tracker(this, measurementId)
     this.trackers.push(tracker)
     return tracker

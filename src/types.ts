@@ -16,7 +16,18 @@ export interface IParams {
   _z?: string
 }
 
+export interface IEventParams {
+  [k: string]: string | number
+}
+
 export interface IEvent {
   name: string
-  params: object
+  params: IEventParams
+}
+
+export interface ISystemInfo {
+  windowWidth: number
+  windowHeight: number
+  pixelRatio: number
+  language: string
 }

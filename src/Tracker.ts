@@ -1,7 +1,7 @@
 const defaultTrackerServer = 'https://www.google-analytics.com'
 import GoogleAnalytics from './GoogleAnalytics'
 import { IParams } from './types'
-import { buildQueryFromObject, log } from './utils'
+import { buildQueryFromObject, log, getSystemInfo } from './utils'
 import { request } from './utils/request'
 import Event from './Event'
 
@@ -25,7 +25,7 @@ export default class Tracker {
     this.sending = false
   }
 
-  setTrackerServer(trackerServer) {
+  setTrackerServer(trackerServer: string) {
     this.trackerServer = trackerServer
     return this
   }
@@ -86,8 +86,9 @@ export default class Tracker {
     this.sendRequest(payloadData)
   }
 
-  async sendRequest(payloadData) {
+  async sendRequest(payloadData: any) {
     const ga = this.ga
+    const systemInfo = getSystemInfo()
     const params: IParams = {
       v: ga.params.version,
       cid: ga.params.clientId,
@@ -95,7 +96,7 @@ export default class Tracker {
       gtm: ga.params.gtm,
       sr: ga.params.screenResolution,
       sid: +new Date(),
-      ul: (navigator.language || '').toLowerCase(),
+      ul: systemInfo.language,
       dt: 'cbmm mini program',
       _p: Math.round(2147483647 * Math.random()).toString()
     }
