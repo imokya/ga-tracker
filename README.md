@@ -3,7 +3,7 @@
 ```javascript
 npm i @mayupai/ga-tracker   
 ```
-### 2.uniapp中设置全局实例
+### 2.设置全局实例
 ```js
 const gaTracker = {
   instance: null,
@@ -19,7 +19,7 @@ const gaTracker = {
 }
 Vue.prototype.$gaTracker = gaTracker
 ```
-### 3.uniapp页面中调用
+### 3.页面中调用
 ```js
  const tracker = this.$gaTracker.getInstance()
  const event = new ga.PageViewEvent()
