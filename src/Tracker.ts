@@ -97,7 +97,6 @@ export default class Tracker {
       sr: ga.params.screenResolution,
       sid: +new Date(),
       ul: systemInfo.language,
-      dt: 'cbmm mini program',
       _p: Math.round(2147483647 * Math.random()).toString()
     }
     const apiURL = `${this.trackerServer}/g/collect`

@@ -17,7 +17,7 @@ export interface IPayLoadParams {
 }
 
 export interface IParams {
-  [k: string]: string | number
+  [k: string]: any
 }
 
 export interface IEvent {
