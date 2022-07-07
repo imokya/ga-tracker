@@ -26,4 +26,13 @@ Vue.prototype.$gaTracker = gaTracker
  event.setParams({ page_title: '页面标题' })
  tracker.send(event)
 ```
+### 4.页面中发送自定义事件
+```js
+ const tracker = this.$gaTracker.getInstance()
+ const event = new ga.Event()
+ event.setName('信息提交')
+ event.setParams({ action: 'click', 'label': '用户' })
+ tracker.send(event)
+```
+
 

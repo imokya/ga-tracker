@@ -20,10 +20,10 @@
         'https://ga-proxy-1651970-1306334697.ap-shanghai.run.tcloudbase.com/ga'
       )
 
-      const event = new Event()
-      event.setName('tap')
+      const event = new PageViewEvent()
+
       event.setParams({
-        title: '去看蜘蛛侠'
+        page_title: '去看蜘蛛侠'
       })
       event.setCampaignParamsFromUrl(campaignUrl)
 
