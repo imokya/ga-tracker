@@ -1,20 +1,17 @@
 import { IEvent, IParams } from './types'
 import CampaignParam from './CampaignParam'
 
-const keyMap: IParams = {
-  page_title: 'dt',
-  page_location: 'dl'
-}
-
 export default class Event {
   public event: IEvent
   public campaignParams: IParams | null
+  public filterMap: IParams | null
 
   constructor() {
     this.event = {
       name: 'page_view',
       params: {}
     }
+    this.filterMap = null
     this.campaignParams = null
   }
 
@@ -41,18 +38,25 @@ export default class Event {
     })
   }
 
+  // 根据filterMap替换特殊键值
+  filterParams(payload: any) {
+    if (!this.filterMap) return
+    Object.keys(this.event.params).forEach((key) => {
+      if (this.filterMap && this.filterMap[key]) {
+        payload[this.filterMap[key]] = this.event.params[key]
+        delete this.event.params[key]
+      }
+    })
+  }
+
   getParams() {
     const payload: IParams = {
       en: this.event.name,
       _ee: 1
     }
-    // 如果存在keyMap中的键值
-    Object.keys(this.event.params).forEach((key) => {
-      if (keyMap[key]) {
-        payload[keyMap[key]] = this.event.params[key]
-        delete this.event.params[key]
-      }
-    })
+
+    this.filterParams(payload)
+
     this.mergeParams(this.event.params, payload, 'ep.')
     if (this.campaignParams) {
       this.mergeParams(this.campaignParams, payload)
