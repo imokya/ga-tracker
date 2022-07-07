@@ -3,6 +3,7 @@ import GoogleAnalytics from './GoogleAnalytics'
 import { IParams } from './types'
 import { buildQueryFromObject, log } from './utils'
 import { request } from './utils/request'
+import Event from './Event'
 
 interface IQueueData {
   payload: object
@@ -29,7 +30,8 @@ export default class Tracker {
     return this
   }
 
-  send(payload: object) {
+  send(event: Event) {
+    const payload = event.getParams()
     this.addToQueue(payload)
     return this
   }
