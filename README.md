@@ -1,10 +1,10 @@
 ## 在小程序中使用谷歌统计4
 ### 1.安装
 ```javascript
-npm i @mayupai/ga-tracker
- 
-### 2.uniapp中使用
-```javascript
+npm i @mayupai/ga-tracker   
+```
+### 2.uniapp中设置全局实例
+```js
 const gaTracker = {
   instance: null,
   getInstance() {
@@ -18,6 +18,12 @@ const gaTracker = {
   }
 }
 Vue.prototype.$gaTracker = gaTracker
-
-
+```
+### 3.uniapp页面中调用
+```js
+ const tracker = this.$gaTracker.getInstance()
+ const event = new ga.PageViewEvent()
+ event.setParams({ page_title: title })
+ tracker.send(event)
+```
 
