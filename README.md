@@ -2,8 +2,8 @@
 ### 1.安装
 ```javascript
 npm i @mayupai/ga-tracker
-### 2.uniapp中使用
 
+### 2.uniapp中使用
 ```javascript
 const gaTracker = {
   instance: null,
