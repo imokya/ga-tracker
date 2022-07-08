@@ -20,7 +20,7 @@ export default class GoogleAnalytics {
   constructor() {
     this.params = {
       version: 2,
-      gtm: 'GTM-MD3RB97',
+      gtm: '2oe6t0',
       clientId: this.getClientId(),
       screenResolution: this.getScreenResolution()
     }
