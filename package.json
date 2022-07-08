@@ -1,8 +1,9 @@
 {
   "name": "@mayupai/ga-tracker",
-  "version": "0.0.16",
+  "version": "0.0.18",
   "description": "",
   "main": "dist/ga-tracker.js",
+  "types": "dist/ga-tracker.d.ts",
   "scripts": {
     "dev": "webpack server --progress --config config/dev.config.js",
     "build": "webpack --progress --config config/prod.config.js"
@@ -15,7 +16,8 @@
     "ga4",
     "wechat",
     "uniapp",
-    "miniprogram"
+    "miniprogram",
+    "Google Analytics"
   ],
   "author": {
     "name": "行歌",
