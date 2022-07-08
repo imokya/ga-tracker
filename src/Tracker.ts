@@ -16,6 +16,7 @@ export default class Tracker {
   public measurementId: string
   public queue: IQueueData[]
   public sending: boolean
+  public gtm: string
 
   constructor(ga: GoogleAnalytics, measurementId: string) {
     this.ga = ga
@@ -23,6 +24,12 @@ export default class Tracker {
     this.trackerServer = defaultTrackerServer
     this.queue = []
     this.sending = false
+    this.gtm = ''
+  }
+
+  setGTM(gtm: string) {
+    this.gtm = gtm
+    return this
   }
 
   setTrackerServer(trackerServer: string) {
@@ -93,7 +100,7 @@ export default class Tracker {
       v: ga.params.version,
       cid: ga.params.clientId,
       tid: this.measurementId,
-      gtm: ga.params.gtm,
+      gtm: this.gtm || ga.params.gtm,
       sr: ga.params.screenResolution,
       sid: +new Date(),
       ul: systemInfo.language,

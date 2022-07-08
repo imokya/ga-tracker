@@ -9,6 +9,7 @@ declare module ga {
   }
   export class Tracker {
     constructor(ga: GoogleAnalytics, measurementId: string)
+    public setGTM(gtm: string): Tracker
     public setTrackerServer(trackerServer: string): Tracker
     public send(event: Event): Tracker
   }
