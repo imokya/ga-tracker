@@ -3,7 +3,7 @@ declare module ga {
     constructor()
     public getInstance(): GoogleAnalytics
     public getClientId(): string
-    public getScreenResolution(): strting
+    public getScreenResolution(): string
     public getTracker(): Tracker
     public getDefaultTracker(): Tracker | null
   }
