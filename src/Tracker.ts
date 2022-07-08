@@ -97,7 +97,10 @@ export default class Tracker {
       sr: ga.params.screenResolution,
       sid: +new Date(),
       ul: systemInfo.language,
-      _p: Math.round(2147483647 * Math.random()).toString()
+      _p: Math.round(2147483647 * Math.random()).toString(),
+      _s: 1,
+      seg: 1,
+      sct: 1
     }
     const apiURL = `${this.trackerServer}/g/collect`
     const query = buildQueryFromObject(params)

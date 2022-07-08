@@ -4,7 +4,7 @@ import { CLIENT_ID } from './utils/constant'
 import { getSystemInfo, uuid } from './utils'
 
 interface IGAParams {
-  version: string
+  version: number
   screenResolution: string
   clientId: string
   gtm: string
@@ -19,8 +19,8 @@ export default class GoogleAnalytics {
 
   constructor() {
     this.params = {
-      version: '2',
-      gtm: '2oe6t0',
+      version: 2,
+      gtm: 'GTM-MD3RB97',
       clientId: this.getClientId(),
       screenResolution: this.getScreenResolution()
     }

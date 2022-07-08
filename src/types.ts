@@ -1,5 +1,5 @@
 export interface IPayLoadParams {
-  v: string // version
+  v: number // version
   gtm: string // tag manager container
   tid: string // measurement id
   cid: string // client id
@@ -10,9 +10,9 @@ export interface IPayLoadParams {
   ul?: string // language
   dr?: string
   _p?: string
-  _s?: string
-  sct?: string
-  seg?: string
+  _s?: number
+  sct?: number
+  seg?: number
   _z?: string
 }
 
