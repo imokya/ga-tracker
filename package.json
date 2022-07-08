@@ -1,6 +1,6 @@
 {
   "name": "@mayupai/ga-tracker",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "description": "",
   "main": "dist/ga-tracker.js",
   "types": "dist/ga-tracker.d.ts",
